@@ -9,7 +9,9 @@ const flap      = document.querySelector('.flap');
 const signBox   = document.getElementById('signature');
 
 signBox.addEventListener('input',()=>{
-  if(signBox.innerText.trim().toLowerCase()==='namgnal'){
+  const signature = signBox.innerText.trim();
+  const canOpenEnvelope = signature.toLowerCase() === 'namgnal' || signature === '王彦苹';
+  if(canOpenEnvelope){
     signBox.setAttribute('contenteditable','false');
     flap.style.animation='flap-open .9s forwards';
     setTimeout(()=>{
