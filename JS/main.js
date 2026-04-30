@@ -10,7 +10,7 @@ const signBox   = document.getElementById('signature');
 
 signBox.addEventListener('input',()=>{
   const signature = signBox.innerText.trim();
-  const canOpenEnvelope = signature.toLowerCase() === 'namgnal' || signature === '王彦苹';
+  const canOpenEnvelope = signature.toLowerCase() === 'namgnal' || signature === '冯星谣';
   if(canOpenEnvelope){
     signBox.setAttribute('contenteditable','false');
     flap.style.animation='flap-open .9s forwards';
