@@ -7,11 +7,24 @@ const stageEnv  = document.getElementById('stage-envelope');
 const stageGift = document.getElementById('stage-gift');
 const flap      = document.querySelector('.flap');
 const signBox   = document.getElementById('signature');
+const cakeImage = document.querySelector('.cake-image');
+
+const cakeBySignature = new Map([
+  ['namgnal', 'image/cake.png'],
+  ['王彦苹', 'image/wyp-cake.png'],
+  ['盛锡俊', 'image/sxj-cake.png'],
+  ['冯星谣', 'image/fxy-cake.png'],
+]);
+
+function signatureKey(value){
+  const signature = value.trim();
+  return signature.toLowerCase() === 'namgnal' ? 'namgnal' : signature;
+}
 
 signBox.addEventListener('input',()=>{
-  const signature = signBox.innerText.trim();
-  const canOpenEnvelope = signature.toLowerCase() === 'namgnal' || signature === '冯星谣';
-  if(canOpenEnvelope){
+  const cakeSrc = cakeBySignature.get(signatureKey(signBox.innerText));
+  if(cakeSrc){
+    if(cakeImage) cakeImage.src = cakeSrc;
     signBox.setAttribute('contenteditable','false');
     flap.style.animation='flap-open .9s forwards';
     setTimeout(()=>{
