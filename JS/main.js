@@ -14,6 +14,7 @@ const cakeBySignature = new Map([
   ['王彦苹', 'image/wyp-cake.png'],
   ['盛锡俊', 'image/sxj-cake.png'],
   ['冯星谣', 'image/fxy-cake.png'],
+  ['邱雷', 'image/ql-cake.png'],
 ]);
 
 function signatureKey(value){
